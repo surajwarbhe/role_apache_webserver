@@ -1,0 +1,19 @@
+- name: "Installation of HTTPD Software"
+  package:
+          name: "httpd"
+          state: present
+
+- name: "Installation of PHP Software"
+  package:
+          name: "php"
+          state: present
+
+- name: "Copying Web Pages"
+  copy:
+          src: "index.php"
+          dest: "/var/www/html/index.php"
+
+- name: "Starting HTTPD services"
+  service:
+          name: "httpd"
+          state: restarted
